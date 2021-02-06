@@ -3,9 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
     <title>Weather</title>
 </head>
 <body>
+
+    <div class="top-div">
+        <div class="first-div">
+            <h1 id="location"> Location </h1>
+        </div>
+
+        <div class="first-div" id="weather-icon">
+            <img id="icon" src="https://i.imgur.com/5PrVqjG.png">
+            <!- 
+            SUNNY: https://i.imgur.com/ygIwPwq.png
+            RAIN :  https://i.imgur.com/9RAOvms.png
+            SNOW: https://i.imgur.com/5PrVqjG.png
+            Cloudy: https://i.imgur.com/lERvHW7.png
+            ->
+        </div>
+    </div>
+    <div id="current-temp">
+        <h1 id="temperature"> 30°F</h1>
+    </div>
+
+    <div id="user-input-div">
+        <div class="input-item">
+            <input type="text" id="input-text" name="input" >
+        </div>
+        <div class="input-item">
+            <button id="seach-btn"> Search Location </button>
+        </div>
+    </div>
+    
+
     
     
 </body>
