@@ -1,61 +1,123 @@
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
 body{
-    height:600px;
-    background: linear-gradient(to right top, #42a1f5, #42f584);
-    color: white;
-    font-family: 'Raleway', sans-serif;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	background: linear-gradient(to right top, #42a1f5, #42f584);
+	font-family: helvetica;
+	color: white;
 }
 
-.top-div{
-    margin-top: 15%;
-    height: 100px;
+.location-timezone{
+	font-size: 5vmin;
+}
 
+.icon{
+	width: 30vmin;
 }
-.first-div{
-    height: 90%;
-    width: 25%;
-    float: left;
-    margin-left: 10%;
 
+.location, 
+.temperature{
+	height: 20vh;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
 }
-#location{
-    text-align: center;
+
+.location{
+	margin-top: 5vh;
 }
-#icon{
-    width: 25%;
-    height:90%
+
+.temperature{
+	flex-direction: column;
+	cursor: pointer;
 }
-#temperature{
-    margin-left: 25%;
+
+.temperature-degree{
+	font-size: 10vmin;
 }
-#user-input-div{
-    height: 100px;
-    width: 100%;
+
+.temperature-description{
+	font-size: 3vmin;
 }
-.input-item{
-    width: 30%;
-    margin-left: 3%;
-    
+
+.user-input-div{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	margin-top: 15vmin;
 }
-#input-text{
-    background-color: rgba(255, 222555, 255, .2) ;
-    border: none;
-    border-radius: 15px;
-    margin-left: 35%;
-    width: 300px; 
-    height: 50px;
+
+.input-text{
+	width: 30vmin;
+	height: 8vmin;
+	margin-top: 3vmin;
+	background-color: rgba(255, 222555, 255, .4);
+	border: none;
+	border-radius: 15px;
+	color: white;
+	font-size: 3vmin;
+	text-align: center;
+	outline: none;
 }
-#seach-btn{
-    margin-top: 3%;
-    margin-left: 35%;
-    background: black;
-    color: white;
-    border: none;
-    border-radius: 15px;
-    height: 30px;
-    width: 150px;
-    font-weight: bolder;
+
+.input-text::-webkit-inner-spin-button {
+	display: none;
 }
-#seach-btn:hover{
-    background: white;
-    color: black;
+
+.search-btn{
+	width: 20vmin;
+	height: 6vmin;
+	margin-top: 4vmin;
+	background-color: #545454;
+	border: none;
+	border-radius: 15px;
+	color: white;
+	font-size: 2vmin;
+	outline: none;
+	cursor: pointer;
+}
+
+.search-btn:active{
+	background-color: #1d1d1d;
+	transform: scale(1.05);
+}
+.search-btn:hover{
+	background-color: white;
+	color:black;
+}
+
+.contributors{
+	position: absolute;
+	left: 30px;
+	bottom: 30px;
+}
+
+.contributors h2{
+	font-size: 3vmin;
+}
+
+.contributors h5{
+	font-size: 1vmin;
+	margin-top: 1vmin;
+	margin-left: 2vmin;
+	line-height: 1.5vmin;
+}
+
+@media (max-width: 1200px) {
+	.contributors h2{
+		font-size: 4vmin;
+	}
+	
+	.contributors h5{
+		font-size: 2vmin;
+		line-height: 2.5vmin;
+	}
 }
