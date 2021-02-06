@@ -68,6 +68,12 @@ body{
 	outline: none;
 }
 
+.error-message{
+	margin-top: 1vmin;
+	font-size: 2vmin;
+	font-weight: bolder;
+}
+
 .input-text::-webkit-inner-spin-button {
 	display: none;
 }
@@ -90,8 +96,7 @@ body{
 	transform: scale(1.05);
 }
 .search-btn:hover{
-	background-color: white;
-	color:black;
+	background-color: gray;
 }
 
 .contributors{

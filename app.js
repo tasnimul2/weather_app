@@ -7,6 +7,7 @@ window.addEventListener('load', () => {
 	let weatherIcon = document.querySelector('.icon');
 	let zipcodeInput = document.querySelector('.input-text');
 	let searchBtn = document.querySelector('.search-btn');
+	let errorMessage = document.querySelector('.error-message');
 
 	let api;
 	let dataFromAPI;
@@ -24,6 +25,7 @@ window.addEventListener('load', () => {
 
 	searchBtn.addEventListener('click', () => getZipcodeLocation());
 	document.querySelector('.temperature').addEventListener('click', () => updateTemperatureUnit(dataFromAPI));
+	zipcodeInput.addEventListener('focus', () => errorMessage.textContent = "");
 	zipcodeInput.addEventListener("keyup", function(event) {
 		if (event.keyCode === 13) {
 			searchBtn.click();
@@ -63,35 +65,24 @@ window.addEventListener('load', () => {
 	function getZipcodeLocation() {
 		const zipcode = zipcodeInput.value;
 		api = `https://zipcode-geolocation-api.herokuapp.com/api/zipcode/${zipcode}`
-		const response = fetch(api)
-		
-		// In case my database done, the public API will be used
-		if (response.ok) {
-			const data = response.json();
-			const {
-				long,
-				lat,
-				city,
-				state
-			} = data[0];
-			render(long, lat, `${city}, ${state}`);
-		} else {
-			api =
-				`https://app.zipcodebase.com/api/v1/search?apikey=26436530-6642-11eb-b787-4d04f7ef9ea4&codes=${zipcode}&country=US`;
-			fetch(api)
-				.then(response => {
-					return response.json();
-				})
-				.then(data => {
+		fetch(api) 
+			.then(res =>{
+				return res.json();
+			})
+			.then(data => {
+				if(data.length === 0){
+					errorMessage.textContent = "This zipcode is not in our database!";
+				}else{
+					errorMessage.textContent = "";
 					const {
-						longitude,
-						latitude,
+						long,
+						lat,
 						city,
-						state_code
-					} = data.results[zipcode][0];
-					render(longitude, latitude, `${city}, ${state_code}`);
-				})
-		}
+						state
+					} = data[0];
+					render(long, lat, `${city}, ${state}`);
+				}
+			})
 	}
 
 	function updateTemperatureUnit(data) {
